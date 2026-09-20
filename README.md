@@ -42,10 +42,17 @@ og-card.html       regenerated each build; open it to recapture og.png
 
 Prose fields accept two bits of inline markup and nothing else:
 
-| Markup                 | Renders as |
-| ---------------------- | ---------- |
-| `**text**`             | bold       |
-| `[label](https://url)` | a link     |
+| Markup                 | Renders as                   |
+| ---------------------- | ---------------------------- |
+| `**text**`             | bold                         |
+| `[label](https://url)` | a link                       |
+| `{{year}}`             | the year at build time       |
+
+`{{year}}` is what keeps the footer's copyright current. Because it resolves
+when the site is built, it only moves on if something triggers a build — a
+push does, but a year with no pushes would leave it stale. An unrecognised
+`{{token}}` is left on the page verbatim rather than blanked, so a typo is
+visible rather than silent.
 
 Everything else is HTML-escaped, so `&`, `<` and quotes are safe to type literally. Link URLs are checked against an allow-list (http, https, mailto, `#anchor`, relative paths), so a stray `javascript:` URL is rendered inert.
 

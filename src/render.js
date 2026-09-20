@@ -17,6 +17,7 @@ export function renderPage(cv) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(meta.title ?? '')}</title>
 <meta name="description" content="${esc(meta.description ?? '')}">
+<meta name="author" content="${esc(meta.author ?? cv.hero?.name ?? '')}">
 ${socialTags(meta)}
 ${fontLinks(meta.fonts)}
 <link rel="stylesheet" href="styles.css">

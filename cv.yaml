@@ -18,6 +18,10 @@ meta:
     Application developer and consultant at IBM in London, specialising in
     full-stack development, DevOps and delivering technology that solves real
     business challenges.
+  # <meta name="author"> falls back to hero.name, so it is only worth setting
+  # here if the two should differ:
+  #   author: Alexander Mendola
+
   # Where the site is deployed. Open Graph requires absolute URLs, and a page
   # cannot know its own address, so this has to be stated. Also used for the
   # canonical link.
@@ -229,8 +233,8 @@ work:
           The page you're reading. A single YAML file holds every piece of
           content; a small Node script renders it to static HTML, CSS and JS
           with one dependency and no framework. The editor panel in the hero
-          re-serialises that same file, so what it shows can never drift from
-          the config behind it.
+          and the card you get when the link is shared are both generated from
+          that same file, so neither can drift from the config behind it.
       outcome: >-
         Meets WCAG AA contrast on every colour pair, keyboard navigable
         throughout, and honours prefers-reduced-motion.
@@ -261,5 +265,7 @@ contact:
       }
 
 footer:
-  left: © 2026 Alexander Mendola
+  # {{year}} is filled in at build time — Cloudflare rebuilds on every push,
+  # so this stays current without being edited.
+  left: "© {{year}} Alexander Mendola"
   right: hand-written HTML, built from one YAML file. no framework, no tracker.

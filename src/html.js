@@ -21,15 +21,32 @@ export function esc(value) {
 }
 
 /**
- * Escape, then allow **bold** and [label](href).
+ * Values substituted for {{token}} at build time.
+ * An unknown token is left alone rather than blanked, so a typo shows up on
+ * the page instead of silently deleting itself.
+ */
+const TOKENS = {
+  year: () => String(new Date().getFullYear()),
+};
+
+function substitute(text) {
+  return text.replace(/\{\{(\w+)\}\}/g, (whole, name) =>
+    Object.hasOwn(TOKENS, name) ? TOKENS[name]() : whole
+  );
+}
+
+/**
+ * Escape, then allow **bold**, [label](href) and {{token}}.
  * An href outside the allow-list is left as literal source text rather than
  * quietly becoming a link, so a bad URL in cv.yaml is visible on the page.
  */
 export function inline(value) {
-  return esc(value)
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (whole, label, href) =>
-      isSafeHref(href) ? `<a href="${href}">${label}</a>` : whole)
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return substitute(
+    esc(value)
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (whole, label, href) =>
+        isSafeHref(href) ? `<a href="${href}">${label}</a>` : whole)
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+  );
 }
 
 /**
