@@ -1,0 +1,17 @@
+{
+  "name": "alexander-mendola-web-cv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web CV for Alexander Mendola — generated from cv.yaml",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

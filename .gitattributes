@@ -1,0 +1,4 @@
+# Store everything with LF in the repo, whatever the checkout platform does.
+# Keeps a Windows checkout from showing every file as modified after a build
+# on Cloudflare's Linux runners.
+* text=auto eol=lf

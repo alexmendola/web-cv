@@ -1,0 +1,229 @@
+# =============================================================================
+#  Alexander Mendola — web CV content
+#  -------------------------------------------------------------------------
+#  This file is the single source of truth for the site. Edit it, then run:
+#      npm run build
+#  ...and dist/ is regenerated. You should never need to touch the HTML.
+#
+#  Prose fields accept a tiny bit of inline markup:
+#      **bold**                  -> emphasised text
+#      [label](https://url)      -> a link
+#  Everything else is escaped, so ampersands and angle brackets are safe.
+# =============================================================================
+
+meta:
+  lang: en-GB
+  title: Alexander Mendola — Application Developer & Consultant
+  description: >-
+    Application developer and consultant at IBM in London, specialising in
+    full-stack development, DevOps and delivering technology that solves real
+    business challenges.
+  # Google Fonts families pulled in by the page.
+  fonts:
+    - IBM+Plex+Mono:ital,wght@0,400;0,500;1,400
+    - IBM+Plex+Sans:wght@400;500;600;700
+
+site:
+  brand: ~/alexander-mendola
+  nav:
+    - { label: about, href: "#about" }
+    - { label: experience, href: "#experience" }
+    - { label: work, href: "#work" }
+    - { label: contact, href: "#contact" }
+
+# -----------------------------------------------------------------------------
+# Hero
+# -----------------------------------------------------------------------------
+hero:
+  kicker: application developer & consultant
+  name: Alexander Mendola
+  cursor: "_"
+  role: >-
+    I build full-stack solutions to real business problems — and enjoy the
+    people side as much as the code.
+  lede: >-
+    Developer and consultant at IBM in London, working across the full software
+    lifecycle: translating business requirements into technical solutions, then
+    building, shipping and supporting them in live environments.
+  actions:
+    - { label: See selected work, href: "#work", style: button }
+    - { label: Get in touch, href: "#contact", style: quiet }
+
+  # The code-editor card. `profile` below is re-serialised as syntax-highlighted
+  # YAML at build time — so what the card shows really is this config.
+  editor:
+    tab: profile.yaml
+    comment: the short version
+    # Keys listed here render as inline [a, b] lists instead of block lists.
+    flow_keys: [open_to]
+    profile:
+      name: Alexander Mendola
+      role: Application Developer & Consultant
+      firm: IBM
+      base: London, UK
+      studying: BSc Digital & Technology Solutions
+      focus:
+        - full-stack development
+        - devops & ci/cd
+        - cloud
+      open_to: [collaboration, interesting problems]
+
+# -----------------------------------------------------------------------------
+# About, skills, credentials
+# -----------------------------------------------------------------------------
+about:
+  id: about
+  heading: About
+  paragraphs:
+    - >-
+      I'm an application developer and consultant at **IBM**, specialising in
+      full-stack development, DevOps and delivering technology that solves real
+      business challenges. My experience spans the whole software lifecycle —
+      from translating requirements into technical solutions to developing,
+      deploying and supporting applications in live environments.
+    - >-
+      Right now, that means **leading the technical development and delivery of
+      a resource management platform** used by over 1,500 employees — owning
+      development activities, mentoring colleagues, and driving improvements in
+      code quality, testing and delivery practices along the way.
+    - >-
+      Alongside the day job, I'm completing a Digital & Technology Solutions
+      degree apprenticeship at Northeastern University London — sharpening the
+      theory behind the practice. Before all this, I spent a couple of years
+      volunteering at a riding stables supporting people with special needs.
+  now:
+    heading: currently
+    items:
+      - "**Leading** delivery of a resource management platform (1,500+ users)"
+      - "**Studying** BSc Digital & Technology Solutions, Northeastern University London"
+      - "**Mentoring** colleagues on code quality & testing practices"
+
+# accent: amber | teal | violet | muted — colours the group like a token type.
+skills:
+  - group: languages
+    accent: amber
+    items: [JavaScript, Python, SQL]
+  - group: stack
+    accent: teal
+    items: [Vue.js, Node.js, PostgreSQL]
+  - group: devops & cloud
+    accent: violet
+    items: [Docker, Kubernetes, CI/CD, Hybrid Cloud, OCI]
+  - group: practices
+    accent: muted
+    items:
+      [agile delivery, design thinking, accessibility, UX, QA, client relations]
+
+credentials:
+  heading: credentials
+  items:
+    - { name: OCI Certified Foundations Associate, issuer: Oracle, year: 2026 }
+    - { name: Docker Essentials, issuer: Cognitive Class, year: 2026 }
+    - { name: DevOps Fundamentals, issuer: IBM, year: 2026 }
+    - { name: Cloud Essentials, issuer: IBM, year: 2026 }
+    - { name: Generative & Agentic AI Foundation, issuer: IBM, year: 2024 }
+    - { name: Enterprise Design Thinking Practitioner, issuer: IBM, year: 2025 }
+  # Rendered as a `# comment` line under the list.
+  note: plus 7 more — full list on [LinkedIn](https://www.linkedin.com/in/alexander-mendola)
+
+# -----------------------------------------------------------------------------
+# Experience — rendered as a commit-history style timeline
+# -----------------------------------------------------------------------------
+experience:
+  id: experience
+  heading: Experience
+  entries:
+    - period: 2023 — present
+      title: Application Developer & Consultant
+      org: IBM, London
+      current: true # filled-in timeline dot
+      points:
+        - >-
+          Leading the technical development and delivery of a resource
+          management platform supporting 1,500+ employees — improving
+          operational efficiency and streamlining business processes.
+        - >-
+          Taking ownership of development activities across the team: mentoring
+          colleagues and driving improvements in code quality, testing and
+          delivery practices.
+        - >-
+          Supporting business-critical applications in live environments —
+          resolving production issues and improving system reliability and
+          security.
+
+    - period: 2023 — 2027 (expected)
+      title: BSc Digital & Technology Solutions — Degree Apprenticeship
+      org: Northeastern University London
+      points:
+        - >-
+          Combining full-time client delivery with formal study of software
+          engineering and how technology drives business change.
+
+    - period: 2020 — 2022
+      title: "A-levels: Computer Science, Economics, Mathematics"
+      org: Sixth form
+
+# -----------------------------------------------------------------------------
+# Selected work
+# -----------------------------------------------------------------------------
+work:
+  id: work
+  heading: Selected work
+  items:
+    - title: Resource management platform
+      featured: true
+      badge: featured
+      year: ongoing
+      tech: Vue.js · Node.js · PostgreSQL
+      body:
+        - >-
+          Leading technical development and delivery of a platform that manages
+          resourcing for a large organisation — replacing slower, manual
+          processes with a single system people actually want to use.
+      outcome: >-
+        In daily use by 1,500+ employees; streamlined operations and business
+        processes across the organisation.
+
+    - title: Business-critical application support
+      year: ongoing
+      tech: production support · security
+      body:
+        - >-
+          Keeping live systems healthy: diagnosing and resolving production
+          issues, tightening security, and lifting reliability for applications
+          the business depends on every day.
+
+    - title: Engineering practice uplift
+      year: ongoing
+      tech: code quality · testing · CI/CD
+      body:
+        - >-
+          Driving better ways of working across the team — stronger code review,
+          more meaningful test coverage and smoother delivery pipelines — while
+          mentoring colleagues along the way.
+  note: >-
+    some details generalised under client confidentiality — happy to elaborate
+    in conversation.
+
+# -----------------------------------------------------------------------------
+# Contact & footer
+# -----------------------------------------------------------------------------
+contact:
+  id: contact
+  heading: Contact
+  intro: >-
+    The fastest way to reach me is email — happy to talk projects, consulting,
+    or anything full-stack and DevOps.
+  links:
+    - {
+        label: alexander.mendola@outlook.com,
+        href: "mailto:alexander.mendola@outlook.com",
+      }
+    - {
+        label: linkedin.com/in/alexander-mendola,
+        href: "https://www.linkedin.com/in/alexander-mendola",
+      }
+
+footer:
+  left: © 2026 Alexander Mendola
+  right: hand-written HTML, built from one YAML file. no framework, no tracker.

@@ -1,0 +1,6 @@
+node_modules/
+
+# Cloudflare Pages runs `npm run build` on every push, so the built site is
+# generated at deploy time rather than committed. Nothing in dist/ is a source
+# file — delete the folder and `npm run build` recreates it.
+dist/
