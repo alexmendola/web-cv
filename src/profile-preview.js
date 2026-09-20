@@ -3,7 +3,7 @@
    syntax-highlighted HTML lines.
 
    The point is that the editor card in the hero is not a picture of a
-   config file — it *is* the config, round-tripped. Edit cv.yaml and the
+   config file – it *is* the config, round-tripped. Edit cv.yaml and the
    card follows, line numbers included.
 
    Colour convention inherited from the original hand-written page:
@@ -13,7 +13,7 @@
      punctuation    -> muted           (.tok-punc)
 ---------------------------------------------------------------- */
 
-import { esc } from './html.js';
+import { esc } from "./html.js";
 
 const key = (t) => `<span class="tok-key">${esc(t)}</span>`;
 const str = (t) => `<span class="tok-str">"${esc(t)}"</span>`;
@@ -33,23 +33,23 @@ export function renderProfile(editor = {}) {
 }
 
 function walk(node, depth, flowKeys, lines) {
-  const pad = ' '.repeat(depth * 2);
+  const pad = " ".repeat(depth * 2);
 
   for (const [k, value] of Object.entries(node)) {
     if (Array.isArray(value)) {
       if (flowKeys.has(k)) {
-        lines.push(`${pad}${key(k)}${punc(':')} ${flowSeq(value)}`);
+        lines.push(`${pad}${key(k)}${punc(":")} ${flowSeq(value)}`);
       } else {
-        lines.push(`${pad}${key(k)}${punc(':')}`);
+        lines.push(`${pad}${key(k)}${punc(":")}`);
         for (const item of value) {
-          lines.push(`${pad}${punc('  -')} ${val(item)}`);
+          lines.push(`${pad}${punc("  -")} ${val(item)}`);
         }
       }
-    } else if (value && typeof value === 'object') {
-      lines.push(`${pad}${key(k)}${punc(':')}`);
+    } else if (value && typeof value === "object") {
+      lines.push(`${pad}${key(k)}${punc(":")}`);
       walk(value, depth + 1, flowKeys, lines);
     } else {
-      lines.push(`${pad}${key(k)}${punc(':')} ${scalar(value)}`);
+      lines.push(`${pad}${key(k)}${punc(":")} ${scalar(value)}`);
     }
   }
 }
@@ -66,19 +66,19 @@ function walk(node, depth, flowKeys, lines) {
  */
 export function describeProfile(editor = {}) {
   const parts = Object.entries(editor.profile ?? {}).map(([k, value]) => {
-    const label = k.replace(/_/g, ' ');
-    const text = Array.isArray(value) ? value.join(', ') : value;
+    const label = k.replace(/_/g, " ");
+    const text = Array.isArray(value) ? value.join(", ") : value;
     return `${label}: ${text}`;
   });
-  return `Profile summary, shown as a YAML file. ${parts.join('. ')}.`;
+  return `Profile summary, shown as a YAML file. ${parts.join(". ")}.`;
 }
 
 function flowSeq(items) {
-  const inner = items.map((i) => val(i)).join(`${punc(',')} `);
-  return `${punc('[')}${inner}${punc(']')}`;
+  const inner = items.map((i) => val(i)).join(`${punc(",")} `);
+  return `${punc("[")}${inner}${punc("]")}`;
 }
 
 /** Strings read as quoted values; numbers and booleans stay bare. */
 function scalar(value) {
-  return typeof value === 'string' ? str(value) : val(value);
+  return typeof value === "string" ? str(value) : val(value);
 }

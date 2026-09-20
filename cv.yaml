@@ -1,5 +1,5 @@
 # =============================================================================
-#  Alexander Mendola — web CV content
+#  Alexander Mendola – web CV content
 #  -------------------------------------------------------------------------
 #  This file is the single source of truth for the site. Edit it, then run:
 #      npm run build
@@ -13,7 +13,7 @@
 
 meta:
   lang: en-GB
-  title: Alexander Mendola — Application Developer & Consultant
+  title: Alexander Mendola – Application Developer & Consultant
   description: >-
     Application developer and consultant at IBM in London, specialising in
     full-stack development, DevOps and delivering technology that solves real
@@ -31,11 +31,11 @@ meta:
   # og.title and og.description fall back to meta.title and meta.description.
   og:
     site_name: Alexander Mendola
-    # Relative to meta.url above. Must be a real PNG or JPEG — SVG is not
+    # Relative to meta.url above. Must be a real PNG or JPEG – SVG is not
     # supported by LinkedIn. 1200x630 is the standard size.
     image: /og.png
     image_alt: >-
-      Alexander Mendola — Application Developer & Consultant, IBM London.
+      Alexander Mendola – Application Developer & Consultant, IBM London.
 
   # Google Fonts families pulled in by the page.
   fonts:
@@ -59,7 +59,7 @@ hero:
   name: Alexander Mendola
   cursor: "_"
   role: >-
-    I build full-stack solutions to real business problems — and enjoy the
+    I build full-stack solutions to real business problems – and enjoy the
     people side as much as the code.
   lede: >-
     Developer and consultant at IBM in London, working across the full software
@@ -70,7 +70,7 @@ hero:
     - { label: Get in touch, href: "#contact", style: quiet }
 
   # The code-editor card. `profile` below is re-serialised as syntax-highlighted
-  # YAML at build time — so what the card shows really is this config.
+  # YAML at build time – so what the card shows really is this config.
   editor:
     tab: profile.yaml
     comment: the short version
@@ -98,17 +98,17 @@ about:
     - >-
       I'm an application developer and consultant at **IBM**, specialising in
       full-stack development, DevOps and delivering technology that solves real
-      business challenges. My experience spans the whole software lifecycle —
+      business challenges. My experience spans the whole software lifecycle –
       from translating requirements into technical solutions to developing,
       deploying and supporting applications in live environments.
     - >-
       Right now, that means **leading the technical development and delivery of
-      a resource management platform** used by over 1,500 employees — owning
+      a resource management platform** used by over 1,500 employees – owning
       development activities, mentoring colleagues, and driving improvements in
       code quality, testing and delivery practices along the way.
     - >-
       Alongside the day job, I'm completing a Digital & Technology Solutions
-      degree apprenticeship at Northeastern University London — sharpening the
+      degree apprenticeship at Northeastern University London – sharpening the
       theory behind the practice. Before all this, I spent a couple of years
       volunteering at a riding stables supporting people with special needs.
   now:
@@ -118,7 +118,7 @@ about:
       - "**Studying** BSc Digital & Technology Solutions, Northeastern University London"
       - "**Mentoring** colleagues on code quality & testing practices"
 
-# accent: amber | teal | violet | muted — colours the group like a token type.
+# accent: amber | teal | violet | muted – colours the group like a token type.
 skills:
   - group: languages
     accent: amber
@@ -137,7 +137,7 @@ skills:
 credentials:
   heading: credentials
   # Four only: earned ones first, newest first, then anything in progress. The
-  # "Essentials"/"Fundamentals" badges are deliberately left off — they read as
+  # "Essentials"/"Fundamentals" badges are deliberately left off – they read as
   # introductory next to these and dilute the list. The rest live on LinkedIn.
   items:
     - { name: OCI Certified Foundations Associate, issuer: Oracle, year: 2026 }
@@ -152,20 +152,20 @@ credentials:
   note: full list on [LinkedIn](https://www.linkedin.com/in/alexander-mendola)
 
 # -----------------------------------------------------------------------------
-# Experience — rendered as a commit-history style timeline
+# Experience – rendered as a commit-history style timeline
 # -----------------------------------------------------------------------------
 experience:
   id: experience
   heading: Experience
   entries:
-    - period: 2023 — present
+    - period: 2023 – present
       title: Application Developer & Consultant
       org: IBM, London
       current: true # filled-in timeline dot
       points:
         - >-
           Lead the technical development and delivery of a resource management
-          platform supporting 1,500+ employees — improving operational
+          platform supporting 1,500+ employees – improving operational
           efficiency and streamlining business processes.
         - >-
           Own development activities across the team: mentoring colleagues and
@@ -175,15 +175,15 @@ experience:
           resolving production issues and improving system reliability and
           security.
 
-    - period: 2023 — 2027 (expected)
-      title: BSc Digital & Technology Solutions — Degree Apprenticeship
+    - period: 2023 – 2027 (expected)
+      title: BSc Digital & Technology Solutions – Degree Apprenticeship
       org: Northeastern University London
       points:
         - >-
           Full-time client delivery alongside formal study of software
           engineering and how technology drives business change.
 
-    - period: 2020 — 2022
+    - period: 2020 – 2022
       title: "A-levels: Computer Science, Economics, Mathematics"
       org: Sixth form
 
@@ -221,8 +221,8 @@ work:
       tech: code quality · testing · CI/CD
       body:
         - >-
-          Better ways of working across the team — stronger code review, more
-          meaningful test coverage and smoother delivery pipelines — with
+          Better ways of working across the team – stronger code review, more
+          meaningful test coverage and smoother delivery pipelines – with
           mentoring alongside.
 
     - title: This site
@@ -239,10 +239,10 @@ work:
         Meets WCAG AA contrast on every colour pair, keyboard navigable
         throughout, and honours prefers-reduced-motion.
 
-  # Scoped to the client work above — this site is the one thing here a reader
+  # Scoped to the client work above – this site is the one thing here a reader
   # can actually inspect.
   note: >-
-    client work above is described in general terms under confidentiality —
+    client work above is described in general terms under confidentiality –
     happy to go into specifics in conversation.
 
 # -----------------------------------------------------------------------------
@@ -252,7 +252,7 @@ contact:
   id: contact
   heading: Contact
   intro: >-
-    The fastest way to reach me is email — happy to talk projects, consulting,
+    The fastest way to reach me is email – happy to talk projects, consulting,
     or anything full-stack and DevOps.
   links:
     - {
@@ -265,7 +265,7 @@ contact:
       }
 
 footer:
-  # {{year}} is filled in at build time — Cloudflare rebuilds on every push,
+  # {{year}} is filled in at build time – Cloudflare rebuilds on every push,
   # so this stays current without being edited.
   left: "© {{year}} Alexander Mendola"
   right: hand-written HTML, built from one YAML file. no framework, no tracker.

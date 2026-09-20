@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------
    The link-preview card, as a 1200x630 HTML page you screenshot once.
 
-   Not deployed as part of the site — build.js writes it to
+   Not deployed as part of the site – build.js writes it to
    dist/og-card.html purely so you can open it, capture it, and save the
    result as src/og.png. Driven from cv.yaml like everything else, so the
    card cannot claim a different name or role from the page it previews.
@@ -10,20 +10,22 @@
    wide, so everything here is seen at about 43% of its stated size.
 ---------------------------------------------------------------- */
 
-import { esc } from './html.js';
+import { esc } from "./html.js";
 
 export function renderCard(cv) {
   const hero = cv.hero ?? {};
   const profile = hero.editor?.profile ?? {};
-  const url = (cv.meta?.url ?? '').replace(/^https?:\/\//, '').replace(/\/+$/, '');
-  const org = [profile.firm, profile.base].filter(Boolean).join(' · ');
+  const url = (cv.meta?.url ?? "")
+    .replace(/^https?:\/\//, "")
+    .replace(/\/+$/, "");
+  const org = [profile.firm, profile.base].filter(Boolean).join(" · ");
 
   return `<!DOCTYPE html>
-<html lang="${esc(cv.meta?.lang ?? 'en')}">
+<html lang="${esc(cv.meta?.lang ?? "en")}">
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex">
-<title>Open Graph card — screenshot this</title>
+<title>Open Graph card – screenshot this</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -55,7 +57,7 @@ export function renderCard(cv) {
     max-width: 420px;
   }
 
-  /* Exactly 1200x630. Do not add margin or shadow to this element — they
+  /* Exactly 1200x630. Do not add margin or shadow to this element – they
      would be included in a node screenshot. */
   .og-card {
     width: 1200px;
@@ -122,9 +124,9 @@ export function renderCard(cv) {
 </p>
 
 <div class="og-card">
-  <p class="kicker">// ${esc(hero.kicker ?? '')}</p>
-  <h1 class="name">${esc(hero.name ?? '')}<span class="underscore">${esc(hero.cursor ?? '_')}</span></h1>
-  <p class="role">${esc(profile.role ?? '')}</p>
+  <p class="kicker">// ${esc(hero.kicker ?? "")}</p>
+  <h1 class="name">${esc(hero.name ?? "")}<span class="underscore">${esc(hero.cursor ?? "_")}</span></h1>
+  <p class="role">${esc(profile.role ?? "")}</p>
   <div class="rule"></div>
   <div class="foot">
     <span class="url">${esc(url)}</span>
