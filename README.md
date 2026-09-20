@@ -58,11 +58,11 @@ Hosted on Cloudflare Pages at
 [cv.alexandermendola.dev](https://cv.alexandermendola.dev), building from this
 repo on every push to `main`:
 
-| Setting               | Value           |
-| --------------------- | --------------- |
-| Build command         | `npm run build` |
-| Build output directory | `dist`         |
-| Node version          | from `.node-version` (20) |
+| Setting                | Value                     |
+| ---------------------- | ------------------------- |
+| Build command          | `npm run build`           |
+| Build output directory | `dist`                    |
+| Node version           | from `.node-version` (20) |
 
 So deploying is just:
 
