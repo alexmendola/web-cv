@@ -25,14 +25,18 @@ cv.yaml            all content — the only file you edit to update the CV
 src/
   styles.css       all styling (copied to dist/ as-is)
   main.js          the page's only script (copied to dist/ as-is)
+  og.png           1200x630 link-preview image (copied to dist/ as-is)
   render.js        cv.yaml -> HTML, one function per region of the page
   html.js          escaping + the tiny **bold** / [link](url) markup
   profile-preview.js   re-serialises the hero's profile block as highlighted YAML
+  og-card.js       the link-preview card, as a page you screenshot
 build.js           the build itself; `--watch` to rebuild on change
-dist/              generated output — publish this folder
+dist/              generated output — deployed by Cloudflare
+og-card.html       regenerated each build; open it to recapture og.png
 ```
 
-`dist/` is disposable: delete it and `npm run build` recreates it.
+`dist/` and `og-card.html` are both disposable: delete them and
+`npm run build` recreates them. Everything else is source.
 
 ## Writing `cv.yaml`
 
@@ -51,6 +55,34 @@ A few fields worth knowing about:
 - **`experience.entries[].current`** — `true` fills in that entry's timeline dot. Use it on the present role only.
 - **`work.items[].featured`** — `true` promotes the project to a card.
 - **`hero.editor.profile`** — this block is re-serialised back into syntax-highlighted YAML to draw the editor card in the hero, line numbers and all. What the card shows really is this config, so it can never drift. `flow_keys` lists the keys that should render as inline `[a, b]` lists rather than block lists.
+
+## The link preview
+
+When the site is shared on LinkedIn, Slack, iMessage or WhatsApp, the card
+those show comes from the Open Graph tags in the page head, generated from
+`meta.url` and `meta.og` in `cv.yaml`. The image is `src/og.png`, which has to
+be a real PNG or JPEG at an absolute URL — SVG is not supported, and a relative
+path is ignored.
+
+To change the card — a new job title, a different design — edit `cv.yaml` or
+`src/og-card.js`, then:
+
+1. `npm run build`, which rewrites `og-card.html` in the project root.
+2. Open `og-card.html` in Chrome.
+3. Right-click the card → Inspect → right-click the `<div class="og-card">`
+   node → **Capture node screenshot**.
+4. Save over `src/og.png`.
+
+Capture the node rather than taking an ordinary screenshot: a normal capture
+picks up your display scaling and won't be 1200×630.
+
+The build warns on every run if `meta.og.image` is set but `src/og.png` is
+missing, because a preview pointing at a 404 is worse than no image tag —
+scrapers cache the failure.
+
+**LinkedIn caches previews aggressively.** After changing the image, run the
+URL through [Post Inspector](https://www.linkedin.com/post-inspector/) to force
+a refresh, or the old card can persist for weeks.
 
 ## Deployment
 

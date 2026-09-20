@@ -17,6 +17,7 @@ export function renderPage(cv) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(meta.title ?? '')}</title>
 <meta name="description" content="${esc(meta.description ?? '')}">
+${socialTags(meta)}
 ${fontLinks(meta.fonts)}
 <link rel="stylesheet" href="styles.css">
 <script src="main.js" defer></script>
@@ -47,6 +48,43 @@ ${footer(cv.footer ?? {})}
 }
 
 /* ---------------- head ---------------- */
+
+/**
+ * Open Graph + Twitter card tags.
+ *
+ * Every URL here has to be absolute: LinkedIn, Slack and the rest fetch the
+ * page out of context and will not resolve a relative path. Omitting the image
+ * is what produces the blank grey card, so if og.image is missing we emit the
+ * text tags only rather than pointing at something that 404s.
+ */
+function socialTags(meta) {
+  const site = meta.url ? meta.url.replace(/\/+$/, '') + '/' : null;
+  const og = meta.og ?? {};
+  const title = og.title ?? meta.title ?? '';
+  const description = og.description ?? meta.description ?? '';
+  const image = og.image && site ? new URL(og.image, site).href : null;
+
+  const tags = [
+    site ? `<link rel="canonical" href="${esc(site)}">` : null,
+    '<meta property="og:type" content="website">',
+    og.site_name ? `<meta property="og:site_name" content="${esc(og.site_name)}">` : null,
+    `<meta property="og:title" content="${esc(title)}">`,
+    `<meta property="og:description" content="${esc(description)}">`,
+    site ? `<meta property="og:url" content="${esc(site)}">` : null,
+    image ? `<meta property="og:image" content="${esc(image)}">` : null,
+    // Declaring the dimensions lets a scraper lay the card out before it has
+    // finished downloading the image.
+    image ? '<meta property="og:image:width" content="1200">' : null,
+    image ? '<meta property="og:image:height" content="630">' : null,
+    image && og.image_alt ? `<meta property="og:image:alt" content="${esc(og.image_alt)}">` : null,
+    `<meta name="twitter:card" content="${image ? 'summary_large_image' : 'summary'}">`,
+    `<meta name="twitter:title" content="${esc(title)}">`,
+    `<meta name="twitter:description" content="${esc(description)}">`,
+    image ? `<meta name="twitter:image" content="${esc(image)}">` : null,
+  ];
+
+  return join(tags);
+}
 
 function fontLinks(families) {
   if (!families?.length) return '';

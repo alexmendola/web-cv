@@ -18,6 +18,21 @@ meta:
     Application developer and consultant at IBM in London, specialising in
     full-stack development, DevOps and delivering technology that solves real
     business challenges.
+  # Where the site is deployed. Open Graph requires absolute URLs, and a page
+  # cannot know its own address, so this has to be stated. Also used for the
+  # canonical link.
+  url: https://cv.alexandermendola.dev
+
+  # Link previews (LinkedIn, Slack, iMessage, WhatsApp, Twitter/X).
+  # og.title and og.description fall back to meta.title and meta.description.
+  og:
+    site_name: Alexander Mendola
+    # Relative to meta.url above. Must be a real PNG or JPEG — SVG is not
+    # supported by LinkedIn. 1200x630 is the standard size.
+    image: /og.png
+    image_alt: >-
+      Alexander Mendola — Application Developer & Consultant, IBM London.
+
   # Google Fonts families pulled in by the page.
   fonts:
     - IBM+Plex+Mono:ital,wght@0,400;0,500;1,400
