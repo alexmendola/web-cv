@@ -6,7 +6,7 @@
 ---------------------------------------------------------------- */
 
 import { esc, inline, attrs, join, indent } from './html.js';
-import { renderProfile } from './profile-preview.js';
+import { renderProfile, describeProfile } from './profile-preview.js';
 
 export function renderPage(cv) {
   const meta = cv.meta ?? {};
@@ -23,9 +23,11 @@ ${fontLinks(meta.fonts)}
 </head>
 <body>
 
+<a class="skip-link" href="#main">${esc(cv.site?.skip_link ?? 'Skip to content')}</a>
+
 ${topbar(cv.site ?? {})}
 
-<main>
+<main id="main" tabindex="-1">
 ${indent(hero(cv.hero ?? {}), 2)}
 
 ${indent(aboutSection(cv), 2)}
@@ -118,7 +120,10 @@ function editorCard(editor) {
     )
     .join('\n');
 
-  return `<div class="editor" data-reveal="editor" aria-label="Profile summary, styled as a code editor">
+  // role="img" + a label is what makes the name stick: a bare <div> is
+  // role="generic", which does not support an accessible name, so the old
+  // aria-label was silently dropped and screen readers read the raw YAML.
+  return `<div class="editor" data-reveal="editor" role="img" aria-label="${esc(describeProfile(editor))}">
   <div class="editor-tabbar"><span class="editor-tab">${esc(editor.tab ?? 'profile.yaml')}</span></div>
   <div class="editor-body">
 <pre>${lines}</pre>

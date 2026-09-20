@@ -25,6 +25,7 @@ meta:
 
 site:
   brand: ~/alexander-mendola
+  skip_link: Skip to content # First thing a keyboard user tabs to; hidden until focused.
   nav:
     - { label: about, href: "#about" }
     - { label: experience, href: "#experience" }

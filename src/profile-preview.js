@@ -54,6 +54,25 @@ function walk(node, depth, flowKeys, lines) {
   }
 }
 
+/**
+ * A plain-text reading of the same profile, for the card's accessible name.
+ *
+ * The card is `role="img"`, so assistive tech announces this instead of
+ * walking eleven lines of quotes, colons, dashes and line numbers. Built from
+ * the same object as the visible card, so the two cannot drift apart.
+ *
+ * @param {object} editor  the `hero.editor` block from cv.yaml
+ * @returns {string}
+ */
+export function describeProfile(editor = {}) {
+  const parts = Object.entries(editor.profile ?? {}).map(([k, value]) => {
+    const label = k.replace(/_/g, ' ');
+    const text = Array.isArray(value) ? value.join(', ') : value;
+    return `${label}: ${text}`;
+  });
+  return `Profile summary, shown as a YAML file. ${parts.join('. ')}.`;
+}
+
 function flowSeq(items) {
   const inner = items.map((i) => val(i)).join(`${punc(',')} `);
   return `${punc('[')}${inner}${punc(']')}`;

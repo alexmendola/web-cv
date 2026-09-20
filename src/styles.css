@@ -11,7 +11,10 @@
   --line:      #2a3147;
   --text:      #e8eaf2;
   --muted:     #9aa3b8;
-  --faint:     #6b7590;
+  /* --faint is the quietest tier, but it still has to clear WCAG AA (4.5:1)
+     on both --bg and --surface: 5.36:1 and 4.85:1 respectively. The old
+     #6b7590 managed only 3.90 and 3.54. */
+  --faint:     #808cad;
   --amber:     #e8b25c;
   --teal:      #62d3bd;
   --violet:    #a78bfa;
@@ -63,6 +66,28 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------------- Skip link ----------------
+   Off-screen rather than display:none, which would drop it out of the tab
+   order entirely and defeat the point. First focusable thing on the page. */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  transform: translateY(-120%);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #16120a;
+  background: var(--amber);
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 18px 10px;
+  border-radius: 0 0 6px 0;
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* The skip target. Focus moves here programmatically, which does not match
+   :focus-visible, so no ring is drawn around the whole page body. */
+main:focus { outline: none; }
 
 /* ---------------- Top bar ---------------- */
 .topbar {
