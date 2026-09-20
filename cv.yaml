@@ -120,7 +120,7 @@ about:
     items:
       - "**Supporting** business-critical applications in a live client environment"
       - "**Studying** BSc Digital & Technology Solutions, Northeastern University London"
-      - "**Working towards** AWS Certified Cloud Practitioner"
+      - "**Leading** learner voice representation for 100+ apprentices"
 
 # accent: amber | teal | violet | muted – colours the group like a token type.
 skills:
@@ -209,8 +209,27 @@ experience:
           refactored components to clear technical debt and improved the CI/CD
           pipeline.
 
+    # Voluntary, and concurrent with the apprenticeship – no `current` flag, so
+    # the filled timeline dot stays on the primary role.
+    - period: 2023 – present
+      title: Learner Voice and Student Representative
+      org: Northeastern University London
+      points:
+        - >-
+          Represent the degree apprenticeship community at Northeastern, and
+          lead the representatives for IBM's 100+ apprentices – voluntary,
+          alongside the apprenticeship.
+        - >-
+          Take apprentice feedback into university governance, including the
+          Work-Related Learning Management Board and the inaugural Centre for
+          Apprenticeships Academic Director meeting.
+        - >-
+          Advocacy that has contributed to clearer End-Point Assessment
+          guidance, better-coordinated assessment scheduling, and a dedicated
+          apprentice role in the Students' Union.
+
     - period: 2023 – 2027 (expected)
-      title: BSc Digital & Technology Solutions – Degree Apprenticeship
+      title: BSc Digital & Technology Solutions (Degree Apprenticeship)
       org: Northeastern University London
       points:
         - >-
