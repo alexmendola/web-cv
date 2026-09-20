@@ -102,21 +102,25 @@ about:
       from translating requirements into technical solutions to developing,
       deploying and supporting applications in live environments.
     - >-
-      Right now, that means **leading the technical development and delivery of
-      a resource management platform** used by over 1,500 employees – owning
-      development activities, mentoring colleagues, and driving improvements in
-      code quality, testing and delivery practices along the way.
+      That has meant **leading the technical development and delivery of a
+      resource management platform** used by over 1,500 employees – owning
+      development activities, mentoring colleagues and raising standards for
+      code quality and testing. More recently it has meant client delivery:
+      **supporting business-critical applications in live environments**, where
+      the work is production issues, security and reliability.
     - >-
       Alongside the day job, I'm completing a Digital & Technology Solutions
       degree apprenticeship at Northeastern University London – sharpening the
-      theory behind the practice. Before all this, I spent a couple of years
-      volunteering at a riding stables supporting people with special needs.
+      theory behind the practice. Before that, I spent three years volunteering
+      at Chigwell Riding Trust for Special Needs, supporting riders with
+      additional needs – something I started for my Duke of Edinburgh Award and
+      carried on long after it finished, because I enjoyed it.
   now:
     heading: currently
     items:
-      - "**Leading** delivery of a resource management platform (1,500+ users)"
+      - "**Supporting** business-critical applications in a live client environment"
       - "**Studying** BSc Digital & Technology Solutions, Northeastern University London"
-      - "**Mentoring** colleagues on code quality & testing practices"
+      - "**Working towards** AWS Certified Cloud Practitioner"
 
 # accent: amber | teal | violet | muted – colours the group like a token type.
 skills:
@@ -125,29 +129,46 @@ skills:
     items: [JavaScript, Python, SQL]
   - group: stack
     accent: teal
-    items: [Vue.js, Node.js, PostgreSQL]
+    items: [Vue.js, Node.js, PostgreSQL, Sequelize, Jest]
   - group: devops & cloud
     accent: violet
     items: [Docker, Kubernetes, CI/CD, Hybrid Cloud, OCI]
   - group: practices
     accent: muted
     items:
-      [agile delivery, design thinking, accessibility, UX, QA, client relations]
+      [
+        agile delivery,
+        design thinking,
+        accessibility,
+        UX,
+        QA,
+        application support,
+        client relations,
+      ]
 
 credentials:
   heading: credentials
   # Four only: earned ones first, newest first, then anything in progress. The
   # "Essentials"/"Fundamentals" badges are deliberately left off – they read as
   # introductory next to these and dilute the list. The rest live on LinkedIn.
+  # `url` is optional and links the credential name to its verification page.
+  # An entry without one stays plain text rather than looking verifiable.
   items:
-    - { name: OCI Certified Foundations Associate, issuer: Oracle, year: 2026 }
-    - { name: Enterprise Design Thinking Practitioner, issuer: IBM, year: 2025 }
-    - { name: Generative & Agentic AI Foundation, issuer: IBM, year: 2024 }
-    - {
-        name: AWS Certified Cloud Practitioner,
-        issuer: Amazon Web Services,
-        year: in progress,
-      }
+    - name: OCI Certified Foundations Associate
+      issuer: Oracle
+      year: 2026
+      url: https://catalog-education.oracle.com/ords/certview/sharebadge?id=C00189E984A490EA0D740EFCC27CDCEAF83D438AB8D74E7DF736E809675225C2
+    - name: Enterprise Design Thinking Practitioner
+      issuer: IBM
+      year: 2025
+      url: https://www.credly.com/badges/b7d99ff2-3172-4916-913a-5a4d5bd3b679/
+    - name: Generative & Agentic AI Foundation
+      issuer: IBM
+      year: 2024
+      url: https://www.credly.com/badges/b4ac2bb6-2c4f-4294-a836-82f846dbeaca/
+    - name: AWS Certified Cloud Practitioner
+      issuer: Amazon Web Services
+      year: in progress
   # Rendered as a `# comment` line under the list.
   note: full list on [LinkedIn](https://www.linkedin.com/in/alexander-mendola)
 
@@ -158,22 +179,35 @@ experience:
   id: experience
   heading: Experience
   entries:
-    - period: 2023 – present
-      title: Application Developer & Consultant
+    - period: 2026 – present
+      title: DevOps Engineer & Consultant
       org: IBM, London
       current: true # filled-in timeline dot
       points:
         - >-
-          Lead the technical development and delivery of a resource management
-          platform supporting 1,500+ employees – improving operational
-          efficiency and streamlining business processes.
+          Support business-critical HR applications in a live client
+          environment, diagnosing and resolving production issues within agreed
+          response and resolution targets.
         - >-
-          Own development activities across the team: mentoring colleagues and
-          raising standards for code quality, testing and delivery.
+          Improve application reliability and security through vulnerability
+          remediation and technical investigation, working alongside
+          development and support teams.
+
+    - period: 2023 – 2026
+      title: Full-Stack Developer & Consultant · Technical Delivery Lead
+      org: IBM, London
+      points:
         - >-
-          Support business-critical applications in live environments,
-          resolving production issues and improving system reliability and
-          security.
+          Led technical development and delivery of a resource management
+          platform used by 1,500+ employees – **cutting the time to onboard or
+          offboard a resource by 88%** against the previous process.
+        - >-
+          Took on wider technical and delivery ownership: mentoring colleagues,
+          facilitating sprints and owning the backlog.
+        - >-
+          Introduced Jest testing and supported the team in adopting it,
+          refactored components to clear technical debt and improved the CI/CD
+          pipeline.
 
     - period: 2023 – 2027 (expected)
       title: BSc Digital & Technology Solutions – Degree Apprenticeship
@@ -185,7 +219,6 @@ experience:
 
     - period: 2020 – 2022
       title: "A-levels: Computer Science, Economics, Mathematics"
-      org: Sixth form
 
 # -----------------------------------------------------------------------------
 # Selected work
@@ -194,36 +227,42 @@ work:
   id: work
   heading: Selected work
   items:
+    - title: Business-critical application support
+      featured: true
+      badge: client delivery
+      year: 2026 – present
+      tech: production support · incident response · security
+      body:
+        - >-
+          Live HR applications the business depends on every day. I diagnose
+          and resolve production issues within agreed response targets, and
+          work on vulnerability remediation and reliability alongside the
+          development and support teams.
+
     - title: Resource management platform
       featured: true
-      badge: featured
-      year: ongoing
+      badge: platform
+      year: 2023 – 2026
       tech: Vue.js · Node.js · PostgreSQL
       body:
         - >-
-          Replaces slower, manual resourcing processes across a large
-          organisation with a single system people actually want to use. I lead
-          technical development and delivery.
+          Replaced slower, manual resourcing processes across a large
+          organisation with a single system people actually want to use. I led
+          technical development and delivery across the stack, from the Vue.js
+          front end through to containerised deployment.
       outcome: >-
-        In daily use by 1,500+ employees; streamlined operations and business
-        processes across the organisation.
-
-    - title: Business-critical application support
-      year: ongoing
-      tech: production support · security
-      body:
-        - >-
-          Live systems the business depends on every day. I diagnose and
-          resolve production issues, tighten security, and lift reliability.
+        Cut the time to onboard or offboard a resource by 88% against the
+        previous process. In daily use by 1,500+ employees.
 
     - title: Engineering practice uplift
-      year: ongoing
-      tech: code quality · testing · CI/CD
+      year: 2023 – 2026
+      tech: Jest · code quality · CI/CD
       body:
         - >-
-          Better ways of working across the team – stronger code review, more
-          meaningful test coverage and smoother delivery pipelines – with
-          mentoring alongside.
+          Better ways of working across the platform team – I introduced Jest
+          testing and supported colleagues in adopting it, refactored
+          components to clear technical debt, and improved the delivery
+          pipeline.
 
     - title: This site
       year: 2026

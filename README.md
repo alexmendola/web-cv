@@ -60,7 +60,11 @@ A few fields worth knowing about:
 
 - **`skills[].accent`** – `amber`, `teal`, `violet` or `muted`. Colours the group the way a syntax theme colours a token type.
 - **`experience.entries[].current`** – `true` fills in that entry's timeline dot. Use it on the present role only.
+- **`credentials.items[].url`** – optional. Links the credential name to its verification page (Credly, Oracle CertView). An item without one stays plain text, so an unverifiable entry never looks verifiable.
 - **`work.items[].featured`** – `true` promotes the project to a card.
+- **`work.items[].badge`** – short label above the project meta, e.g. `client delivery`. Only shows on featured items.
+- **`work.items[].outcome`** – the amber-bordered result line under a project. Reserve it for something measurable; it is the most-read line in the section.
+- **`site.skip_link`** – text of the keyboard skip link, hidden until focused. Defaults to `Skip to content`.
 - **`hero.editor.profile`** – this block is re-serialised back into syntax-highlighted YAML to draw the editor card in the hero, line numbers and all. What the card shows really is this config, so it can never drift. `flow_keys` lists the keys that should render as inline `[a, b]` lists rather than block lists.
 
 ## The link preview

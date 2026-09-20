@@ -5,7 +5,7 @@
    filesystem; build.js handles that.
 ---------------------------------------------------------------- */
 
-import { esc, inline, attrs, join, indent } from './html.js';
+import { esc, inline, attrs, join, indent, isSafeHref } from './html.js';
 import { renderProfile, describeProfile } from './profile-preview.js';
 
 export function renderPage(cv) {
@@ -223,7 +223,15 @@ function credentials(creds) {
   const items = creds.items
     .map((c) => {
       const when = join([c.issuer, c.year].filter(Boolean).map(String), ', ');
-      return `    <li><b>${esc(c.name)}</b><span>${esc(when)}</span></li>`;
+      // A credential with a verification URL becomes a link, which the site's
+      // teal picks up automatically. One without stays plain text, so an
+      // unverifiable entry never looks like a verifiable one.
+      const href = esc(c.url ?? '');
+      const name =
+        href && isSafeHref(href)
+          ? `<a href="${href}">${esc(c.name)}</a>`
+          : esc(c.name);
+      return `    <li><b>${name}</b><span>${esc(when)}</span></li>`;
     })
     .join('\n');
   const note = creds.note
@@ -242,18 +250,7 @@ ${items}
 
 function experienceSection(exp) {
   if (!exp) return '';
-  const entries = (exp.entries ?? [])
-    .map((e) => {
-      const points = e.points?.length
-        ? `\n    <ul>\n${e.points.map((p) => `      <li>${inline(p)}</li>`).join('\n')}\n    </ul>`
-        : '';
-      const org = e.org ? `\n    <p class="org">${esc(e.org)}</p>` : '';
-      return `  <article class="entry${e.current ? ' head' : ''}">
-    <p class="tag">${esc(e.period ?? '')}</p>
-    <h3>${esc(e.title ?? '')}</h3>${org}${points}
-  </article>`;
-    })
-    .join('\n\n');
+  const entries = (exp.entries ?? []).map(entry).join('\n\n');
 
   return `<!-- ================= EXPERIENCE ================= -->
 <section${attrs({ id: exp.id })}>
@@ -264,6 +261,23 @@ ${indent(entries, 6)}
     </div>
   </div>
 </section>`;
+}
+
+function entry(e) {
+  const org = e.org ? `\n    <p class="org">${esc(e.org)}</p>` : '';
+
+  return `  <article class="entry${e.current ? ' head' : ''}">
+    <p class="tag">${esc(e.period ?? '')}</p>
+    <h3>${esc(e.title ?? '')}</h3>${org}${bullets(e.points, 4)}
+  </article>`;
+}
+
+function bullets(points, pad) {
+  if (!points?.length) return '';
+  const ind = ' '.repeat(pad);
+  return `\n${ind}<ul>\n${points
+    .map((p) => `${ind}  <li>${inline(p)}</li>`)
+    .join('\n')}\n${ind}</ul>`;
 }
 
 /* ---------------- selected work ---------------- */
