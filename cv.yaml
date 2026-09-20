@@ -130,9 +130,18 @@ skills:
   - group: stack
     accent: teal
     items: [Vue.js, Node.js, PostgreSQL, Sequelize, Jest]
+  # Abbreviations lead, with the expansion after, so the scannable keyword
+  # stays first and later uses of the short form make sense.
   - group: devops & cloud
     accent: violet
-    items: [Docker, Kubernetes, CI/CD, Hybrid Cloud, OCI]
+    items:
+      [
+        Docker,
+        Kubernetes,
+        CI/CD,
+        Hybrid Cloud,
+        OCI (Oracle Cloud Infrastructure),
+      ]
   - group: practices
     accent: muted
     items:
@@ -140,8 +149,8 @@ skills:
         agile delivery,
         design thinking,
         accessibility,
-        UX,
-        QA,
+        UX (user experience),
+        QA (quality assurance),
         application support,
         client relations,
       ]
@@ -294,8 +303,9 @@ work:
           and the card you get when the link is shared are both generated from
           that same file, so neither can drift from the config behind it.
       outcome: >-
-        Meets WCAG AA contrast on every colour pair, keyboard navigable
-        throughout, and honours prefers-reduced-motion.
+        Meets WCAG (Web Content Accessibility Guidelines) AA contrast on every
+        colour pair, keyboard navigable throughout, and honours the reader's
+        reduced-motion preference.
 
   # Scoped to the client work above – this site is the one thing here a reader
   # can actually inspect.
