@@ -15,9 +15,9 @@ meta:
   lang: en-GB
   title: Alexander Mendola – Application Developer & Consultant
   description: >-
-    Application developer and consultant at IBM in London, specialising in
-    full-stack development, DevOps and delivering technology that solves real
-    business challenges.
+    Application developer and consultant at IBM in London. Full-stack
+    development, DevOps, and keeping business-critical systems running in
+    production.
   # <meta name="author"> falls back to hero.name, so it is only worth setting
   # here if the two should differ:
   #   author: Alexander Mendola
@@ -62,9 +62,9 @@ hero:
     I build full-stack solutions to real business problems – and enjoy the
     people side as much as the code.
   lede: >-
-    Developer and consultant at IBM in London, working across the full software
-    lifecycle: translating business requirements into technical solutions, then
-    building, shipping and supporting them in live environments.
+    Developer and consultant at IBM in London. I've spent three years building
+    software for large organisations, and I now support the live systems a
+    client's business runs on.
   actions:
     - { label: See selected work, href: "#work", style: button }
     - { label: Get in touch, href: "#contact", style: quiet }
@@ -96,29 +96,27 @@ about:
   heading: About
   paragraphs:
     - >-
-      I'm an application developer and consultant at **IBM**, specialising in
-      full-stack development, DevOps and delivering technology that solves real
-      business challenges. My experience spans the whole software lifecycle –
-      from translating requirements into technical solutions to developing,
-      deploying and supporting applications in live environments.
+      Most of what I do sits between a business problem and something running
+      in production: talking to the people who'll use a thing, turning what
+      they need into something buildable, getting it shipped, and then working
+      out what's gone wrong when it breaks.
     - >-
-      That has meant **leading the technical development and delivery of a
-      resource management platform** used by over 1,500 employees – owning
-      development activities, mentoring colleagues and raising standards for
-      code quality and testing. More recently it has meant client delivery:
-      **supporting business-critical applications in live environments**, where
-      the work is production issues, security and reliability.
+      Until mid-2026 that was **a resource management platform used by over
+      1,500 employees** – I led it, mentored the people building it, and pushed
+      the team's testing and code review standards along the way. Since mid-2026 it
+      has been external client work: **live HR systems**, where the job is production
+      issues, security and reliability.
     - >-
       Alongside the day job, I'm completing a Digital & Technology Solutions
       degree apprenticeship at Northeastern University London – sharpening the
-      theory behind the practice. Before that, I spent three years volunteering
+      theory behind the practice. Before that, I volunteered for three years
       at Chigwell Riding Trust for Special Needs, supporting riders with
       additional needs – something I started for my Duke of Edinburgh Award and
       carried on long after it finished, because I enjoyed it.
   now:
     heading: currently
     items:
-      - "**Supporting** business-critical applications in a live client environment"
+      - "**Supporting** live client systems in production"
       - "**Studying** BSc Digital & Technology Solutions, Northeastern University London"
       - "**Leading** learner voice representation for 100+ apprentices"
 
@@ -134,14 +132,7 @@ skills:
   # stays first and later uses of the short form make sense.
   - group: devops & cloud
     accent: violet
-    items:
-      [
-        Docker,
-        Kubernetes,
-        CI/CD,
-        Hybrid Cloud,
-        OCI (Oracle Cloud Infrastructure),
-      ]
+    items: [Docker, Kubernetes, CI/CD, OCI (Oracle Cloud Infrastructure)]
   - group: practices
     accent: muted
     items:
@@ -243,7 +234,7 @@ experience:
       points:
         - >-
           Full-time client delivery alongside formal study of software
-          engineering and how technology drives business change.
+          engineering and how technology gets adopted inside an organisation.
 
     - period: 2020 – 2022
       title: "A-levels: Computer Science, Economics, Mathematics"
@@ -262,10 +253,11 @@ work:
       tech: production support · incident response · security
       body:
         - >-
-          Live HR applications the business depends on every day. I diagnose
-          and resolve production issues within agreed response targets, and
-          work on vulnerability remediation and reliability alongside the
-          development and support teams.
+          The HR systems a large client runs its people operations on – the
+          kind where an outage is felt the same day. Problems rarely arrive
+          with a cause attached, so most of the job is working out what
+          actually happened before deciding what to change so it cannot happen
+          twice.
 
     - title: Resource management platform
       featured: true
@@ -276,21 +268,11 @@ work:
         - >-
           Replaced slower, manual resourcing processes across a large
           organisation with a single system people actually want to use. I led
-          technical development and delivery across the stack, from the Vue.js
-          front end through to containerised deployment.
+          it across the stack, from the Vue.js front end through to
+          containerised deployment.
       outcome: >-
         Cut the time to onboard or offboard a resource by 88% against the
         previous process. In daily use by 1,500+ employees.
-
-    - title: Engineering practice uplift
-      year: 2023 – 2026
-      tech: Jest · code quality · CI/CD
-      body:
-        - >-
-          Better ways of working across the platform team – I introduced Jest
-          testing and supported colleagues in adopting it, refactored
-          components to clear technical debt, and improved the delivery
-          pipeline.
 
     - title: This site
       year: 2026
@@ -311,7 +293,7 @@ work:
   # can actually inspect.
   note: >-
     client work above is described in general terms under confidentiality –
-    happy to go into specifics in conversation.
+    happy to go into specifics where possible in conversation.
 
 # -----------------------------------------------------------------------------
 # Contact & footer
@@ -320,8 +302,7 @@ contact:
   id: contact
   heading: Contact
   intro: >-
-    The fastest way to reach me is email – happy to talk projects, consulting,
-    or anything full-stack and DevOps.
+    Email is best. Happy to talk about work, the apprenticeship route, or whatever you're currently trying to keep running in production.
   links:
     - {
         label: alexander.mendola@outlook.com,
@@ -331,9 +312,10 @@ contact:
         label: linkedin.com/in/alexander-mendola,
         href: "https://www.linkedin.com/in/alexander-mendola",
       }
+    - { label: github.com/alexmendola, href: "https://github.com/alexmendola" }
 
 footer:
   # {{year}} is filled in at build time – Cloudflare rebuilds on every push,
   # so this stays current without being edited.
   left: "© {{year}} Alexander Mendola"
-  right: hand-written HTML, built from one YAML file. no framework, no tracker.
+  right: built from one YAML file. no framework, no tracker.
