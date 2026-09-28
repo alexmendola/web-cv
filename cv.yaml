@@ -1,14 +1,13 @@
 # =============================================================================
 #  Alexander Mendola – web CV content
 #  -------------------------------------------------------------------------
-#  This file is the single source of truth for the site. Edit it, then run:
-#      npm run build
-#  ...and dist/ is regenerated. You should never need to touch the HTML.
+#  Single source of truth for the site. Edit, then `npm run build`.
 #
-#  Prose fields accept a tiny bit of inline markup:
-#      **bold**                  -> emphasised text
-#      [label](https://url)      -> a link
-#  Everything else is escaped, so ampersands and angle brackets are safe.
+#  Inline markup in prose fields:
+#      **bold**              emphasis
+#      [label](https://url)  link
+#      {{year}}              current year, at build time
+#  Everything else is escaped.
 # =============================================================================
 
 meta:
@@ -18,21 +17,17 @@ meta:
     Application developer and consultant at IBM in London. Full-stack
     development, DevOps, and keeping business-critical systems running in
     production.
-  # <meta name="author"> falls back to hero.name, so it is only worth setting
-  # here if the two should differ:
-  #   author: Alexander Mendola
+  # author: defaults to hero.name. Set here only to override.
 
-  # Where the site is deployed. Open Graph requires absolute URLs, and a page
-  # cannot know its own address, so this has to be stated. Also used for the
-  # canonical link.
+  # Deployed origin. Needed for absolute og: URLs and the canonical link.
   url: https://cv.alexandermendola.dev
 
   # Link previews (LinkedIn, Slack, iMessage, WhatsApp, Twitter/X).
   # og.title and og.description fall back to meta.title and meta.description.
   og:
     site_name: Alexander Mendola
-    # Relative to meta.url above. Must be a real PNG or JPEG – SVG is not
-    # supported by LinkedIn. 1200x630 is the standard size.
+    # Resolved against meta.url. PNG or JPEG only, 1200x630; LinkedIn
+    # ignores SVG.
     image: /og.png
     image_alt: >-
       Alexander Mendola – Application Developer & Consultant, IBM London.
@@ -69,8 +64,8 @@ hero:
     - { label: See selected work, href: "#work", style: button }
     - { label: Get in touch, href: "#contact", style: quiet }
 
-  # The code-editor card. `profile` below is re-serialised as syntax-highlighted
-  # YAML at build time – so what the card shows really is this config.
+  # Editor card in the hero. `profile` is re-serialised as highlighted YAML
+  # at build time, so the card renders this block verbatim.
   editor:
     tab: profile.yaml
     comment: the short version
@@ -128,8 +123,7 @@ skills:
   - group: stack
     accent: teal
     items: [Vue.js, Node.js, PostgreSQL, Sequelize, Jest]
-  # Abbreviations lead, with the expansion after, so the scannable keyword
-  # stays first and later uses of the short form make sense.
+  # Abbreviation first, expansion in brackets, on first use only.
   - group: devops & cloud
     accent: violet
     items: [Docker, Kubernetes, CI/CD, OCI (Oracle Cloud Infrastructure)]
@@ -148,11 +142,8 @@ skills:
 
 credentials:
   heading: credentials
-  # Four only: earned ones first, newest first, then anything in progress. The
-  # "Essentials"/"Fundamentals" badges are deliberately left off – they read as
-  # introductory next to these and dilute the list. The rest live on LinkedIn.
-  # `url` is optional and links the credential name to its verification page.
-  # An entry without one stays plain text rather than looking verifiable.
+  # Ordered: earned first, newest first, then in progress.
+  # `url` is optional; without one the name renders as plain text.
   items:
     - name: OCI Certified Foundations Associate
       issuer: Oracle
@@ -209,8 +200,8 @@ experience:
           refactored components to clear technical debt and improved the CI/CD
           pipeline.
 
-    # Voluntary, and concurrent with the apprenticeship – no `current` flag, so
-    # the filled timeline dot stays on the primary role.
+    # Concurrent with the apprenticeship. No `current` flag, so the filled
+    # timeline dot stays on the primary role.
     - period: 2023 – present
       title: Learner Voice and Student Representative
       org: Northeastern University London
@@ -289,8 +280,7 @@ work:
         colour pair, keyboard navigable throughout, and honours the reader's
         reduced-motion preference.
 
-  # Scoped to the client work above – this site is the one thing here a reader
-  # can actually inspect.
+  # Applies to the client projects above, not to this site.
   note: >-
     client work above is described in general terms under confidentiality –
     happy to go into specifics where possible in conversation.
@@ -315,7 +305,6 @@ contact:
     - { label: github.com/alexmendola, href: "https://github.com/alexmendola" }
 
 footer:
-  # {{year}} is filled in at build time – Cloudflare rebuilds on every push,
-  # so this stays current without being edited.
+  # {{year}} resolves at build time.
   left: "© {{year}} Alexander Mendola"
   right: built from one YAML file. no framework, no tracker.

@@ -1,0 +1,28 @@
+CV content licence
+==================
+
+Copyright (c) 2026 Alexander Mendola. All rights reserved.
+
+This licence covers the CV content in this repository:
+
+    cv.yaml
+    src/og.png
+
+These files hold personal information – employment history, education,
+credentials, contact details and name – together with the writing used to
+present it. They are in the repository so the site can be built and read,
+not so the content can be reused.
+
+You may not copy, adapt, republish or redistribute these files or their
+contents, in whole or in part, except for:
+
+  - short quotations used to discuss, review or reference this project; and
+  - the copies your browser, editor or build tooling makes in the ordinary
+    course of reading the repository or building the site.
+
+Everything else in this repository – the build script, the renderer, the
+stylesheet and the client-side script – is available under the MIT License.
+See LICENSE.
+
+If you want to build your own CV on this, that is what the MIT-licensed part
+is for: clone it and replace cv.yaml with your own content.
