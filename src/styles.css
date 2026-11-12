@@ -41,13 +41,17 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px));
 }
-@media (prefers-reduced-motion: reduce) {
+/* Opt in rather than opt out: a browser with no support for the query
+   matches neither, so it gets no animation instead of getting it by
+   accident. scroll-padding-top stays outside, as it is not motion. */
+@media (prefers-reduced-motion: no-preference) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
+}
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
