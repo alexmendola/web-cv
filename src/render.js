@@ -8,6 +8,11 @@
 import { esc, inline, attrs, join, indent, isSafeHref } from './html.js';
 import { renderProfile, describeProfile } from './profile-preview.js';
 
+/* Brand ~ as an inline SVG: no extra request, and any icon link stops the
+   browser asking for /favicon.ico and logging a 404. */
+const FAVICON =
+  `<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23131720'/%3E%3Cpath%20d='M7%2017c2.8-5%206.2-5%209%200s6.2%205%209%200'%20stroke='%23e8b25c'%20stroke-width='3'%20fill='none'%20stroke-linecap='round'/%3E%3C/svg%3E">`;
+
 export function renderPage(cv) {
   const meta = cv.meta ?? {};
   return `<!DOCTYPE html>
@@ -18,6 +23,7 @@ export function renderPage(cv) {
 <title>${esc(meta.title ?? '')}</title>
 <meta name="description" content="${esc(meta.description ?? '')}">
 <meta name="author" content="${esc(meta.author ?? cv.hero?.name ?? '')}">
+${FAVICON}
 ${socialTags(meta)}
 ${fontLinks(meta.fonts)}
 <link rel="stylesheet" href="styles.css">

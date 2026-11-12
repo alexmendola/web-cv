@@ -84,13 +84,24 @@ svg {
   max-width: 100%;
 }
 
+/* Underlined by default: WCAG 1.4.1 – a link inside running text needs a
+   cue other than colour. */
 a {
   color: var(--teal);
-  text-decoration: none;
-}
-a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+/* These are not inside running text and already read as interactive. */
+.nav a,
+.contact-links a,
+.btn,
+.link-quiet,
+.skip-link {
+  text-decoration: none;
 }
 :focus-visible {
   outline: 2px solid var(--amber);
